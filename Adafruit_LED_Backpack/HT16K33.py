@@ -92,8 +92,7 @@ class HT16K33(object):
 
     def write_display(self):
         """Write display buffer to display hardware."""
-        for i, value in enumerate(self.buffer):
-            self._device.write8(i, value)
+        self._device.writeList(0, self.buffer)
 
     def clear(self):
         """Clear contents of display buffer."""
